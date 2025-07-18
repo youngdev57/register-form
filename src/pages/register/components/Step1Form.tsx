@@ -3,6 +3,7 @@ import type { RegisterForm } from "@/types/register";
 
 type Props = {
   form: RegisterForm;
+  onReset: () => void;
   onChange: (field: string, value: any) => void;
   onNext: () => void;
   isNextDisabled: boolean;
@@ -12,6 +13,7 @@ type Props = {
 
 export default function Step1Form({
   form,
+  onReset,
   onChange,
   onNext,
   isNextDisabled,
@@ -127,7 +129,10 @@ export default function Step1Form({
 
       {/* 버튼 영역 */}
       <div className="flex gap-4">
-        <button className="w-full bg-white border border-blue-500 text-blue-500 p-2 rounded disabled:bg-gray-300 mt-6 hover:bg-gray-50 transition">
+        <button
+          onClick={onReset}
+          className="w-full bg-white border border-blue-500 text-blue-500 p-2 rounded disabled:bg-gray-300 mt-6 hover:bg-gray-50 transition"
+        >
           취소
         </button>
         <button

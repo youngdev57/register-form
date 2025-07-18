@@ -3,7 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { validateField } from "@/utils/validation";
 
 export function useStep2Form() {
-  const { form, updateForm, updateTerms } = useRegisterStore();
+  const form = useRegisterStore((state) => state.form);
+  const updateForm = useRegisterStore((state) => state.updateForm);
+  const updateTerms = useRegisterStore((state) => state.updateTerms);
+
   const navigate = useNavigate();
 
   const isAllChecked =

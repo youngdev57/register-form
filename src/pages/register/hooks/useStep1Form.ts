@@ -4,10 +4,17 @@ import { useRegisterStore } from "@/stores/registerStore";
 import { validateField } from "@/utils/validation";
 
 export function useStep1Form() {
-  const { form, updateForm } = useRegisterStore();
+  const form = useRegisterStore((state) => state.form);
+  const updateForm = useRegisterStore((state) => state.updateForm);
+  const resetForm = useRegisterStore((state) => state.resetForm);
+
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
   const navigate = useNavigate();
+
+  const handleReset = () => {
+    if (confirm("회원가입을 취소 하시겠습니까?")) resetForm();
+  };
 
   const handleChange = (field: string, value: any) => {
     updateForm({ [field]: value });
@@ -36,6 +43,7 @@ export function useStep1Form() {
 
   return {
     form,
+    onReset: handleReset,
     onChange: handleChange,
     onNext: handleNext,
     isNextDisabled,
