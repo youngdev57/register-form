@@ -8,9 +8,6 @@ export const INTEREST_OPTIONS = [
   { key: "REACT", value: "React" },
   { key: "VUEJS", value: "Vue.js" },
   { key: "JAVASCRIPT", value: "JavaScript" },
-  { key: "TYPESCRIPT", value: "TypeScript" },
   { key: "JAVA", value: "Java" },
-  { key: "PYTHON", value: "Python" },
-  { key: "NODEJS", value: "Node.js" },
-  { key: "AWS", value: "AWS" },
+  { key: "NODE", value: "Node.js" },
 ];

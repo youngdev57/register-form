@@ -1,24 +1,27 @@
 import { useEffect } from "react";
+import type { RegisterForm } from "@/types/register";
 import { INTEREST_OPTIONS } from "@/constants/interests";
 import { GENDER_OPTIONS } from "@/constants/genders";
+import { validateField } from "@/utils/validation";
+import { errorMessage } from "@/utils/validation";
 
 type Props = {
-  form: {
-    nickname: string;
-    birthdate?: string;
-    gender?: string;
-    interests: string[];
-    agreeTerms: boolean;
-  };
+  form: RegisterForm;
   onChange: (field: string, value: any) => void;
+  onChangeTerms: (field: string, value: any) => void;
+  onToggleTerms: (isChecked: boolean) => void;
   onNext: () => void;
+  isAllChecked: boolean;
   isNextDisabled: boolean;
 };
 
 export default function Step2Form({
   form,
   onChange,
+  onChangeTerms,
+  onToggleTerms,
   onNext,
+  isAllChecked,
   isNextDisabled,
 }: Props) {
   const toggleInterest = (interest: string) => {
@@ -45,36 +48,39 @@ export default function Step2Form({
 
       {/* 닉네임 */}
       <div>
-        <label className="block text-sm font-medium mb-2">닉네임</label>
+        {form.nickname && (
+          <div className="flex justify-between items-center mb-2">
+            <label className="block text-sm font-medium">닉네임</label>
+            {!validateField.nickname(form.nickname) && (
+              <p className="text-sm text-gray-500">{errorMessage.nickname}</p>
+            )}
+          </div>
+        )}
         <input
           type="text"
           value={form.nickname}
           onChange={(e) => onChange("nickname", e.target.value)}
           className="w-full p-3 rounded pl-4 bg-gray-50"
-          placeholder=""
+          placeholder="닉네임을 입력해 주세요."
         />
-        {form.nickname.length > 0 &&
-          (form.nickname.length < 2 || form.nickname.length > 10) && (
-            <p className="text-sm text-red-500 mt-1">2~10자로 입력</p>
-          )}
       </div>
 
       {/* 생년월일 */}
       <div>
         {form.birthdate && (
-          <div className="flex justify-between items-center">
-            {/* {!validateField.id(form.id) && (
-                <p className="text-sm text-gray-500">{errorMessage.id}</p>
-              )} */}
+          <div className="flex justify-between items-center mb-2">
+            <label className="block text-sm font-medium">생년월일</label>
+            {!validateField.birthdate(form.birthdate) && (
+              <p className="text-sm text-gray-500">{errorMessage.birthdate}</p>
+            )}
           </div>
         )}
-        <label className="block text-sm font-medium mb-2">생년월일</label>
         <input
           type="text"
           value={form.birthdate || ""}
           onChange={(e) => onChange("birthdate", e.target.value)}
           className="w-full p-3 rounded pl-4 bg-gray-50"
-          placeholder="2001-01-01"
+          placeholder="생년월일을 입력해 주세요."
         />
       </div>
 
@@ -123,53 +129,53 @@ export default function Step2Form({
         <label className="flex gap-2 mt-6">
           <input
             type="checkbox"
-            checked={form.agreeTerms}
-            onChange={(e) => onChange("agreeTerms", e.target.checked)}
+            checked={isAllChecked}
+            onChange={(e) => onToggleTerms(e.target.checked)}
           />
           모든 약관에 전체 동의합니다.
         </label>
         <label className="flex gap-2 mt-2">
           <input
             type="checkbox"
-            // checked={form.agreeTerms}
-            // onChange={(e) => onChange("agreeTerms", e.target.checked)}
+            checked={form.terms.overAge}
+            onChange={(e) => onChangeTerms("overAge", e.target.checked)}
           />
           <p>
-            만 14세 이상입니다.
-            <span className="text-blue-600 text-sm pl-1">(필수)</span>
+            <span className="text-blue-600 pr-1">(필수)</span>만 14세
+            이상입니다.
           </p>
         </label>
         <label className="flex gap-2 mt-2">
           <input
             type="checkbox"
-            // checked={form.agreeTerms}
-            // onChange={(e) => onChange("agreeTerms", e.target.checked)}
+            checked={form.terms.service}
+            onChange={(e) => onChangeTerms("service", e.target.checked)}
           />
           <p>
-            서비스 이용약관
-            <span className="text-blue-600 text-sm pl-1">(필수)</span>
+            <span className="text-blue-600 pr-1">(필수)</span>
+            서비스 이용약관 동의
           </p>
         </label>
         <label className="flex gap-2 mt-2">
           <input
             type="checkbox"
-            // checked={form.agreeTerms}
-            // onChange={(e) => onChange("agreeTerms", e.target.checked)}
+            checked={form.terms.privacy}
+            onChange={(e) => onChangeTerms("privacy", e.target.checked)}
           />
           <p>
+            <span className="text-blue-600 pr-1">(필수)</span>
             개인정보처리방침
-            <span className="text-blue-600 text-sm pl-1">(필수)</span>
           </p>
         </label>
         <label className="flex gap-2 mt-2">
           <input
             type="checkbox"
-            // checked={form.agreeTerms}
-            // onChange={(e) => onChange("agreeTerms", e.target.checked)}
+            checked={form.terms.marketing}
+            onChange={(e) => onChangeTerms("marketing", e.target.checked)}
           />
           <p>
+            <span className="text-gray-500 pr-1">(선택)</span>
             이벤트 마케팅 수신동의
-            <span className="text-gray-400 text-sm pl-1">(선택)</span>
           </p>
         </label>
       </div>

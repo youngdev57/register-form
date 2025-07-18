@@ -1,45 +1,45 @@
 import { create } from "zustand";
-
-interface RegisterForm {
-  id: string;
-  password: string;
-  email: string;
-  mobile: string;
-  nickname: string;
-  gender: string;
-  interests: string[];
-  agreeTerms: boolean;
-}
-
-interface RegisterState {
-  form: RegisterForm;
-  updateForm: (data: Partial<RegisterForm>) => void;
-  resetForm: () => void;
-}
+import type { RegisterState } from "@/types/register";
 
 export const useRegisterStore = create<RegisterState>((set) => ({
   form: {
     id: "",
     password: "",
-    mobile: "",
     email: "",
+    mobile: "",
     nickname: "",
+    birthdate: "",
     gender: "N",
     interests: [],
-    agreeTerms: false,
+    terms: {
+      overAge: false,
+      service: false,
+      privacy: false,
+      marketing: false,
+    },
   },
   updateForm: (data) => set((state) => ({ form: { ...state.form, ...data } })),
+  updateTerms: (data) =>
+    set((state) => ({
+      form: { ...state.form, terms: { ...state.form.terms, ...data } },
+    })),
   resetForm: () =>
     set({
       form: {
         id: "",
         password: "",
-        mobile: "",
         email: "",
+        mobile: "",
         nickname: "",
+        birthdate: "",
         gender: "N",
         interests: [],
-        agreeTerms: false,
+        terms: {
+          overAge: false,
+          service: false,
+          privacy: false,
+          marketing: false,
+        },
       },
     }),
 }));

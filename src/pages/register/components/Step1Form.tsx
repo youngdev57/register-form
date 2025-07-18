@@ -1,7 +1,8 @@
 import { errorMessage, validateField } from "@/utils/validation";
+import type { RegisterForm } from "@/types/register";
 
 type Props = {
-  form: { id: string; password: string; email: string; mobile: string };
+  form: RegisterForm;
   onChange: (field: string, value: any) => void;
   onNext: () => void;
   isNextDisabled: boolean;
