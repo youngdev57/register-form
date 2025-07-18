@@ -6,6 +6,8 @@ interface RegisterForm {
   email: string;
   mobile: string;
   nickname: string;
+  gender: string;
+  interests: string[];
   agreeTerms: boolean;
 }
 
@@ -22,6 +24,8 @@ export const useRegisterStore = create<RegisterState>((set) => ({
     mobile: "",
     email: "",
     nickname: "",
+    gender: "N",
+    interests: [],
     agreeTerms: false,
   },
   updateForm: (data) => set((state) => ({ form: { ...state.form, ...data } })),
@@ -33,6 +37,8 @@ export const useRegisterStore = create<RegisterState>((set) => ({
         mobile: "",
         email: "",
         nickname: "",
+        gender: "N",
+        interests: [],
         agreeTerms: false,
       },
     }),
