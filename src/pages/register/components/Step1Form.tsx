@@ -125,12 +125,15 @@ export default function Step1Form({
         />
       </div>
 
-      {/* 다음 버튼 */}
-      <div>
+      {/* 버튼 영역 */}
+      <div className="flex gap-4">
+        <button className="w-full bg-white border border-blue-500 text-blue-500 p-2 rounded disabled:bg-gray-300 mt-6 hover:bg-gray-50 transition">
+          취소
+        </button>
         <button
           onClick={onNext}
           disabled={isNextDisabled}
-          className="w-full bg-blue-500 text-white p-2 rounded disabled:bg-gray-300 mt-6"
+          className="w-full bg-blue-500 text-white p-2 rounded disabled:bg-gray-300 mt-6 hover:bg-blue-600 transition"
         >
           다음
         </button>

@@ -10,6 +10,7 @@ type Props = {
   onChangeTerms: (field: string, value: any) => void;
   onToggleTerms: (isChecked: boolean) => void;
   onNext: () => void;
+  onPrevious: () => void;
   isAllChecked: boolean;
   isNextDisabled: boolean;
 };
@@ -20,6 +21,7 @@ export default function Step2Form({
   onChangeTerms,
   onToggleTerms,
   onNext,
+  onPrevious,
   isAllChecked,
   isNextDisabled,
 }: Props) {
@@ -176,12 +178,18 @@ export default function Step2Form({
         </label>
       </div>
 
-      {/* 다음 버튼 */}
-      <div>
+      {/* 버튼 영역 */}
+      <div className="flex gap-4">
+        <button
+          onClick={onPrevious}
+          className="w-full bg-white border border-blue-500 text-blue-500 p-2 rounded disabled:bg-gray-300 mt-6 hover:bg-gray-50 transition"
+        >
+          이전
+        </button>
         <button
           onClick={onNext}
           disabled={isNextDisabled}
-          className="w-full bg-blue-500 text-white p-2 rounded disabled:bg-gray-300 mt-6"
+          className="w-full bg-blue-500 text-white p-2 rounded disabled:bg-gray-300 mt-6 hover:bg-blue-600 transition"
         >
           다음
         </button>

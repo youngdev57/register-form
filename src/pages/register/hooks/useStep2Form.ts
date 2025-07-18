@@ -46,12 +46,17 @@ export function useStep2Form() {
     navigate("/register/step3");
   };
 
+  const handlePrivious = () => {
+    navigate("/register/step1");
+  };
+
   return {
     form,
     onChange: handleChange,
     onChangeTerms: handleChangeTerms,
     onToggleTerms: handleToggleAllTerms,
     onNext: handleNext,
+    onPrevious: handlePrivious,
     isAllChecked,
     isNextDisabled,
   };

@@ -23,7 +23,11 @@ export function useStep1Form() {
   const isMobileValid = form.mobile && validateField.mobile(form.mobile);
 
   const isNextDisabled =
-    !isIdValid || !isPasswordValid || !isEmailValid || !isMobileValid;
+    !isIdValid ||
+    !isPasswordValid ||
+    !isEmailValid ||
+    !isMobileValid ||
+    !isPasswordMatched;
 
   const handleNext = () => {
     if (isNextDisabled) return;

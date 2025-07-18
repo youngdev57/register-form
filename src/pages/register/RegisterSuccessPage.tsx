@@ -33,7 +33,7 @@ export default function RegisterSuccessPage() {
         <div>
           <button
             onClick={handleRedirectMain}
-            className="w-full bg-blue-500 text-white p-2 rounded disabled:bg-gray-300 mt-6"
+            className="w-full bg-white border border-blue-500 text-blue-500 p-2 rounded disabled:bg-gray-300 mt-6 hover:bg-blue-500 hover:text-white transition"
           >
             메인으로 이동
           </button>

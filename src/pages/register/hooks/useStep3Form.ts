@@ -5,6 +5,10 @@ export function useStep3Form() {
   const navigate = useNavigate();
   const form = useRegisterStore((state) => state.form);
 
+  const handlePrivious = () => {
+    navigate("/register/step2");
+  };
+
   const handleSuccess = () => {
     // 서버 전송 로직
     console.log("handleSuccess", form);
@@ -24,7 +28,9 @@ export function useStep3Form() {
   const handleLoginWithApple = () => {
     alert("애플 계정 연동");
   };
+
   return {
+    onPrevious: handlePrivious,
     onSuccess: handleSuccess,
     onLoginGoogle: handleLoginWithGoogle,
     onLoginNaver: handleLoginWithNaver,
