@@ -2,10 +2,8 @@ import { useRegisterStore } from "@/stores/registerStore";
 import { useNavigate } from "react-router-dom";
 
 export default function RegisterSuccessPage() {
-  const { form, resetForm } = useRegisterStore((state) => ({
-    form: state.form,
-    resetForm: state.resetForm,
-  }));
+  const form = useRegisterStore((state) => state.form);
+  const resetForm = useRegisterStore((state) => state.resetForm);
 
   const navigate = useNavigate();
 
@@ -15,7 +13,7 @@ export default function RegisterSuccessPage() {
   };
 
   const handleLogin = () => {
-    window.location.href = "https://youngdev57.github.io/user-login";
+    // navigate("/login");
   };
 
   return (
