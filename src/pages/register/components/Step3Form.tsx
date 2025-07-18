@@ -18,9 +18,11 @@ export default function Step3Form({
     <div className="space-y-8">
       {/* 소개말 */}
       <h2 className="text-xl mb-10">
-        간편 로그인 계정을
-        <span className="font-bold pl-1">연동</span>하시면 <br />
-        알림을 받을 수 있어요.
+        마지막으로,
+        <br />
+        소셜 로그인 계정을 연동하면
+        <br />
+        <span className="font-bold text-blue-600">알림</span>을 보내드려요.
       </h2>
 
       {/* 계정 연동 영역 */}
@@ -59,13 +61,13 @@ export default function Step3Form({
         </div>
       </div>
 
-      {/* 가입 완료 버튼 */}
+      {/* 가입 버튼 */}
       <div>
         <button
           onClick={onSuccess}
           className="w-full bg-blue-500 text-white p-2 rounded disabled:bg-gray-300 mt-6"
         >
-          가입 완료
+          가입
         </button>
       </div>
     </div>

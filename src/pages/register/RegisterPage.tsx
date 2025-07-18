@@ -13,23 +13,7 @@ export default function RegisterPage() {
   const step2 = useStep2Form();
   const step3 = useStep3Form();
 
-  // const navigate = useNavigate();
   const currentStep = step ?? "step1";
-
-  // useEffect(() => {
-  //   const vaildSteps = ["step1", "step2", "step3"];
-  //   if (!vaildSteps.includes(currentStep)) navigate("/register/step1");
-  // }, [currentStep, navigate]);
-
-  // const onNext = () => {
-  //   const nextStepMap: Record<string, string> = {
-  //     step1: "step2",
-  //     step2: "step3",
-  //     step3: "success",
-  //   };
-  //   const next = nextStepMap[currentStep];
-  //   navigate(`/register/${next}`);
-  // };
 
   const renderStep = () => {
     switch (step) {

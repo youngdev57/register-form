@@ -1,9 +1,15 @@
+import { useRegisterStore } from "@/stores/registerStore";
 import { useNavigate } from "react-router-dom";
 
 export function useStep3Form() {
   const navigate = useNavigate();
+  const form = useRegisterStore((state) => state.form);
 
   const handleSuccess = () => {
+    // 서버 전송 로직
+    console.log("handleSuccess", form);
+
+    // 서버 요청 성공 시
     navigate("/register/success");
   };
 

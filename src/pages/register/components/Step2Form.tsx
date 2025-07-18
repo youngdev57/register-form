@@ -37,7 +37,8 @@ export default function Step2Form({
       {/* 소개말 */}
       <h2 className="text-xl mb-10">
         아래 정보들은
-        <span className="font-bold pl-1">선택 정보</span>이니 <br />
+        <span className="font-bold pl-1 text-blue-600">선택 정보</span>이니{" "}
+        <br />
         입력하지 않아도 괜찮아요.
       </h2>
 

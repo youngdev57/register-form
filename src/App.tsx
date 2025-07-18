@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import RegisterPage from "./pages/register/RegisterPage";
+import RegisterSuccessPage from "./pages/register/RegisterSuccessPage";
 
 function App() {
   return (
@@ -8,7 +9,10 @@ function App() {
       <Route path="/register" element={<Navigate to="/register/step1" />} />
 
       <Route path="/register/:step" element={<RegisterPage></RegisterPage>} />
-      <Route path="/register/success" element={<div>가입완료</div>} />
+      <Route
+        path="/register/success"
+        element={<RegisterSuccessPage></RegisterSuccessPage>}
+      />
     </Routes>
   );
 }

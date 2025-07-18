@@ -22,8 +22,9 @@ export default function Step1Form({
     <div className="space-y-4">
       {/* 소개말 */}
       <h2 className="text-xl mb-10">
-        <span className="font-bold">회원가입</span>에 필요한 <br />
-        <span className="font-bold">필수 정보</span>를 모두 입력해 주세요.
+        회원가입에 필요한 <br />
+        <span className="font-bold text-blue-600">필수 정보</span>를 모두 입력해
+        주세요.
       </h2>
 
       {/* 아이디 */}
