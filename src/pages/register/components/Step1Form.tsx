@@ -119,19 +119,21 @@ export default function Step1Form({
         <input
           value={form.mobile}
           onChange={(e) => onChange("mobile", e.target.value)}
-          className="w-full p-3 rounded pl-4 bg-gray-50 mb-6"
+          className="w-full p-3 rounded pl-4 bg-gray-50"
           placeholder="전화번호를 입력해 주세요."
         />
       </div>
 
       {/* 다음 버튼 */}
-      <button
-        onClick={onNext}
-        disabled={isNextDisabled}
-        className="w-full bg-blue-500 text-white p-2 rounded disabled:bg-gray-300"
-      >
-        다음 {isNextDisabled}
-      </button>
+      <div>
+        <button
+          onClick={onNext}
+          disabled={isNextDisabled}
+          className="w-full bg-blue-500 text-white p-2 rounded disabled:bg-gray-300 mt-6"
+        >
+          다음
+        </button>
+      </div>
     </div>
   );
 }

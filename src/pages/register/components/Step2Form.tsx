@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import type { RegisterForm } from "@/types/register";
 import { INTEREST_OPTIONS } from "@/constants/interests";
 import { GENDER_OPTIONS } from "@/constants/genders";
@@ -32,10 +31,6 @@ export default function Step2Form({
 
     onChange("interests", next);
   };
-
-  useEffect(() => {
-    console.log(form);
-  }, [form]);
 
   return (
     <div className="space-y-4">
@@ -185,7 +180,7 @@ export default function Step2Form({
         <button
           onClick={onNext}
           disabled={isNextDisabled}
-          className="w-full bg-blue-500 text-white p-2 rounded disabled:bg-gray-300"
+          className="w-full bg-blue-500 text-white p-2 rounded disabled:bg-gray-300 mt-6"
         >
           다음
         </button>

@@ -7,5 +7,21 @@ export function useStep3Form() {
     navigate("/register/success");
   };
 
-  return { onSuccess: handleSuccess };
+  const handleLoginWithGoogle = () => {
+    alert("구글 계정 연동");
+  };
+
+  const handleLoginWithNaver = () => {
+    alert("네이버 계정 연동");
+  };
+
+  const handleLoginWithApple = () => {
+    alert("애플 계정 연동");
+  };
+  return {
+    onSuccess: handleSuccess,
+    onLoginGoogle: handleLoginWithGoogle,
+    onLoginNaver: handleLoginWithNaver,
+    onLoginApple: handleLoginWithApple,
+  };
 }
