@@ -1,69 +1,42 @@
-# React + TypeScript + Vite
+# 회원가입 폼
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+'register-form'은 단계별 회원가입 UI를 구현한 프로젝트입니다.  
+총 1~3단계로 이루어져 있으며 각 필드마다 정규식 기반의 유효성 검사를 진행합니다.
+React + TypeScript 환경에서 상태관리, 컨포넌트 분리, Tailwind CSS 스타일링 등을 적용했습니다.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 기술 스택
 
-## Expanding the ESLint configuration
+| 영역    | 기술                                            |
+| ----- | --------------------------------------------- |
+| 프레임워크 | [React](https://reactjs.org/)                 |
+| 언어    | [TypeScript](https://www.typescriptlang.org/) |
+| 상태관리  | [Zustand](https://github.com/pmndrs/zustand)  |
+| 스타일링  | [Tailwind CSS](https://tailwindcss.com/)      |
+| 번들러   | [Vite](https://vitejs.dev/)                   |
+| 배포    | [GitHub Pages](https://pages.github.com/)     |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 프로젝트 실행 방법
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 1. 설치
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/your-username/register-form.git
+cd register-form
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. 로컬 실행
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run dev
+```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 3. 빌드
+
+```bash
+npm run build
 ```
