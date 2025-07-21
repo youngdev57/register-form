@@ -8,7 +8,10 @@ function App() {
       <Route path="/" element={<Navigate to="/register/step1" />} />
       <Route path="/register" element={<Navigate to="/register/step1" />} />
 
-      <Route path="/register/:step" element={<RegisterPage></RegisterPage>} />
+      <Route
+        path="/register/:pageKey"
+        element={<RegisterPage></RegisterPage>}
+      />
       <Route
         path="/register/success"
         element={<RegisterSuccessPage></RegisterSuccessPage>}

@@ -8,18 +8,17 @@ import { useStep3Form } from "./hooks/useStep3Form";
 import ProgressBar from "@/components/ProgressBar";
 
 export default function RegisterPage() {
-  const { step = "step1" } = useParams();
+  const { pageKey = "step1" } = useParams();
 
   const step1 = useStep1Form();
   const step2 = useStep2Form();
   const step3 = useStep3Form();
 
-  const currentStep = step ?? "step1";
-  const currentStepNumber = +currentStep.replaceAll("step", "");
+  const currentStep = +pageKey.replaceAll("step", "");
   const totalStep = 3;
 
   const renderStep = () => {
-    switch (step) {
+    switch (pageKey) {
       case "step1":
         return <Step1Form {...step1} />;
       case "step2":
@@ -35,7 +34,7 @@ export default function RegisterPage() {
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="w-full max-w-lg p-10 bg-white rounded">
         {/* 프로그레스 영역 */}
-        <ProgressBar currentStep={currentStepNumber} totalStep={totalStep} />
+        <ProgressBar currentStep={currentStep} totalStep={totalStep} />
 
         {/* 스텝 렌더링 */}
         {renderStep()}
