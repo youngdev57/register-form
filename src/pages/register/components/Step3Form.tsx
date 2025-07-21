@@ -19,7 +19,7 @@ export default function Step3Form({
   return (
     <div className="space-y-8">
       {/* 소개말 */}
-      <h2 className="text-xl mb-10">
+      <h2 className="text-xl mt-10 mb-10">
         마지막으로,
         <br />
         소셜 로그인 계정을 연동하면

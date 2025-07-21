@@ -37,7 +37,7 @@ export default function Step2Form({
   return (
     <div className="space-y-4">
       {/* 소개말 */}
-      <h2 className="text-xl mb-10">
+      <h2 className="text-xl mt-10 mb-10">
         아래 정보들은
         <span className="font-bold pl-1 text-blue-600">선택 정보</span>이니{" "}
         <br />

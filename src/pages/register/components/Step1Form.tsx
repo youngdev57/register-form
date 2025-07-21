@@ -23,7 +23,7 @@ export default function Step1Form({
   return (
     <div className="space-y-4">
       {/* 소개말 */}
-      <h2 className="text-xl mb-10">
+      <h2 className="text-xl mt-10 mb-10">
         회원가입에 필요한 <br />
         <span className="font-bold text-blue-600">필수 정보</span>를 모두 입력해
         주세요.

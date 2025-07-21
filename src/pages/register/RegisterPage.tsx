@@ -5,6 +5,7 @@ import Step3Form from "./components/Step3Form";
 import { useStep1Form } from "./hooks/useStep1Form";
 import { useStep2Form } from "./hooks/useStep2Form";
 import { useStep3Form } from "./hooks/useStep3Form";
+import ProgressBar from "@/components/ProgressBar";
 
 export default function RegisterPage() {
   const { step = "step1" } = useParams();
@@ -14,6 +15,8 @@ export default function RegisterPage() {
   const step3 = useStep3Form();
 
   const currentStep = step ?? "step1";
+  const currentStepNumber = +currentStep.replaceAll("step", "");
+  const totalStep = 3;
 
   const renderStep = () => {
     switch (step) {
@@ -32,11 +35,7 @@ export default function RegisterPage() {
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="w-full max-w-lg p-10 bg-white rounded">
         {/* 프로그레스 영역 */}
-        <div className="flex justify-center">
-          <h2 className="text-xl font-bold mb-10">
-            회원가입 ({currentStep.toUpperCase()})
-          </h2>
-        </div>
+        <ProgressBar currentStep={currentStepNumber} totalStep={totalStep} />
 
         {/* 스텝 렌더링 */}
         {renderStep()}
