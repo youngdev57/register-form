@@ -1,9 +1,14 @@
+import { memo } from "react";
+
 type Props = {
   currentStep: number;
   totalStep: number;
 };
 
-export default function ProgressBar({ currentStep, totalStep }: Props) {
+const ProgressBar = memo(function ProgressBar({
+  currentStep,
+  totalStep,
+}: Props) {
   const percentBar = (currentStep / totalStep) * 100;
 
   return (
@@ -20,4 +25,6 @@ export default function ProgressBar({ currentStep, totalStep }: Props) {
       </div>
     </div>
   );
-}
+});
+
+export default ProgressBar;
